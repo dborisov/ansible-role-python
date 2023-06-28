@@ -1,0 +1,13 @@
+---
+- name: Include EL{{ ansible_distribution_major_version }}-specific variables.
+  ansible.builtin.include_vars: "{{ ansible_distribution_major_version }}.yml"
+
+- name: Ensure python {{ python_version }} packages are installed 
+  ansible.builtin.yum:
+    name: "{{ python_packages[python_version] }}{% if python_install_headers %}-devel{% endif %}"
+  when: python_packages[python_version] is defined
+
+- name: Ensure task is failed on incorrect Python version
+  ansible.builtin.fail:
+    msg: "{{ python_version }} is not an acceptable Python version for EL{{ ansible_distribution_major_version }}"
+  when: python_packages[python_version] is not defined

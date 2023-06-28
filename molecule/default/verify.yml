@@ -1,0 +1,15 @@
+---
+- name: Verify
+  hosts: all
+  vars:
+    python_version: "{{ lookup('env','PYTHON_VERSION') }}"
+  tasks:
+    - name: Check Python {{ python_version }} binary is present
+      ansible.builtin.stat:
+        path: "/usr/bin/python{{ python_version }}"
+      register: python_binary
+
+    - name: Fail if Python {{ python_version }} is absent
+      ansible.builtin.fail:
+        msg: "Python {{ python_version }} binary is not found"
+      when: not python_binary.stat.exists

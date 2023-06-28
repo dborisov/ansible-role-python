@@ -1,0 +1,3 @@
+---
+python_version: "{{ lookup('env', 'PYTHON_VERSION') }}"
+python_install_headers: yes
