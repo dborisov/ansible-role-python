@@ -1,3 +1,5 @@
+---
+name: Publishing the ansible role to Ansible Galaxy
 on:
   push:
     tags:
@@ -8,10 +10,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
@@ -19,4 +21,4 @@ jobs:
         run: pip3 install ansible
 
       - name: Import role to the Ansible Galaxy
-        run: ansible-galaxy role import --api-key ${{ secrets.GALAXY_API_KEY }} $(echo ${{ github.repository }} | tr '/' ' ')
+        run: ansible-galaxy role import --token ${{ secrets.GALAXY_TOKEN }} $(echo ${{ github.repository }} | tr '/' ' ')
