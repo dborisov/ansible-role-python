@@ -1,6 +1,7 @@
 ---
-python_packages:
+_python_packages:
   "2.7": python2
   "3.6": python36
   "3.8": python38
   "3.9": python39
+  "3.11": python3.11

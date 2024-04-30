@@ -1,0 +1,19 @@
+---
+argument_specs:
+  main:
+    short_description: Ansible role for installing Python
+    description: >
+      Ansible role for installing Python. 
+      The role supports the installation of Python versions `2.7`, `3.6`, `3.8`, `3.9`, `3.11` on EL8 and `3.9`, `3.11` on EL9. Default is `3.11`.
+    author: Denis Borisov
+    options:
+      python_version:
+        type: "str"
+        required: false
+        default: "3.11"
+        description: Python version to install.
+      python_install_headers:
+        type: "bool"
+        required: false
+        default: false
+        description: Whether to install the python-devel package.

@@ -26,6 +26,10 @@ jobs:
             python-version: "3.9"
           - namespace: "rockylinux"
             image: "rockylinux"
+            tag: "8-ubi-init"
+            python-version: "3.11"
+          - namespace: "rockylinux"
+            image: "rockylinux"
             tag: "9-ubi-init"
             python-version: "3.9"
           - namespace: "rockylinux"
@@ -50,6 +54,10 @@ jobs:
             python-version: "3.9"
           - namespace: "library"
             image: "almalinux"
+            tag: "8"
+            python-version: "3.11"
+          - namespace: "library"
+            image: "almalinux"
             tag: "9"
             python-version: "3.9"
           - namespace: "library"
@@ -73,6 +81,10 @@ jobs:
             tag: "latest"
             python-version: "3.9"
           - namespace: "redhat"
+            image: "ubi8"
+            tag: "latest"
+            python-version: "3.11"
+          - namespace: "redhat"
             image: "ubi9"
             tag: "latest"
             python-version: "3.9"
@@ -82,10 +94,10 @@ jobs:
             python-version: "3.11"
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.ansible-python-version }}
 

@@ -6,12 +6,12 @@ Ansible role for installing Python
 - RedHat 9
 
 # Requirements
-- The role supports the installation of Python versions `2.7`, `3.6`, `3.8`, `3.9` on EL8 and `3.9`, `3.11` on EL9. Default is `3.9`.
+- The role supports the installation of Python versions `2.7`, `3.6`, `3.8`, `3.9`, `3.11` on EL8 and `3.9`, `3.11` on EL9. Default is `3.11`.
 
 # Example Variables
 ```
 python_version: "3.11"
-python_install_headers: yes
+python_install_headers: true
 ```
 
 # Example Playbook
@@ -23,7 +23,7 @@ python_install_headers: yes
 ```
 
 # Role Variables
-Please see `defaults/main.yml`
+Please see `meta/argument_specs.yml`
 
 # Dependencies
 None

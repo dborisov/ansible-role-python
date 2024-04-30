@@ -4,7 +4,7 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: "${IMAGE:-rockylinux}-${TAG:-9}-python-${PYTHON_VERSION:-3.9}"
+  - name: "${IMAGE:-rockylinux}-${TAG:-9}-python-${PYTHON_VERSION:-3.11}"
     hostname: python
     image: "${NAMESPACE:-rockylinux}/${IMAGE:-rockylinux}:${TAG:-9-ubi-init}"
     pre_build_image: true
@@ -19,7 +19,7 @@ platforms:
 provisioner:
   name: ansible
   env:
-    PYTHON_VERSION: ${PYTHON_VERSION:-3.9}
+    PYTHON_VERSION: ${PYTHON_VERSION:-3.11}
 verifier:
   name: ansible
 lint: |
